@@ -1,0 +1,35 @@
+4. Median of Two Sorted Arrays
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int n1 = nums1.size();
+        int n2 = nums2.size();
+        int n3 = n1 + n2;
+        vector<int> nums3(n3);
+
+        for(int i =0 ; i<n1 ;i++){
+            nums3[i] = nums1[i] ;
+        }
+
+        for(int j =0 , i=n1 ; j<n2 ;i++ ,j++ ){
+            nums3[i] = nums2[j];
+        }
+
+        sort(nums3.begin() , nums3.end());
+
+        if((n3%2) == 0){
+         int middle = n3/2;
+         float median = (nums3[middle] + nums3[middle - 1])/2.0;
+         return median;
+        }else{
+            float median = n3/2;
+            ceil(median);
+            return nums3[median];
+        }
+
+        // use merge.push_back(bums[i])
+
+        }
+    
+};
