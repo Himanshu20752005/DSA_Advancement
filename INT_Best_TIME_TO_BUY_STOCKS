@@ -1,1 +1,29 @@
+class Solution {
+public:
+// thw whole concept is that minimum would come first then the max will  come 
+    int maxProfit(vector<int>& prices) {
+        int max = 0;
+        int min = INT_MAX;
+        for(int i =0 ;i<prices.size();i++){
+            if(prices[i]<min){
+                min = prices[i];
+            }else if(prices[i] - min > max){
+                max = prices[i] - min;
+            }
+        }
+        return max;
+        // int max = 0;
+        // int min = INT_MAX;
+        // for(int price : prices){
+        //     if(price < min){
+        //         min = price;
+        //     }else if (price - min > max){
+        //         max = price - min;
+        //     }
+        // }
+        // return max;
+
+
+    }
+};
 
