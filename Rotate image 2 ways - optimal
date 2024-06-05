@@ -11,11 +11,16 @@ public:
         // for(int i = 0; i<matrix.size() ;i++){
         //   reverse(matrix[i].begin() , matrix[i].end());
         // }
+
+
+       // 2nd way 
+
+
         vector<vector<int>> mat2 = matrix;
         for(int i = 0 ;i < matrix.size() ; i++){
             for(int j = 0 ; j < matrix.size() ; j++){
                 int k = matrix.size() -1 -i;
-                matrix[i][j] = mat2[j][k];
+                matrix[j][k] = mat2[i][j];
             }
         }
 
