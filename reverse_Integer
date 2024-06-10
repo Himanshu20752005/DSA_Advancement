@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int reverse(int x) {
+    
+    if(x<0){
+        x = -x;
+        string ans = to_string(x);
+        std :: reverse(ans.begin() , ans.end());
+        return -1*stoi(ans);
+    }else{
+        string ans = to_string(x);
+        std :: reverse(ans.begin() , ans.end());
+        return stoi(ans);
+    }
+    }
+};
