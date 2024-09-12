@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int countConsistentStrings(string a, vector<string>& w) {
+        unordered_set<char> input(a.begin(), a.end());  
+        int count = 0;
+        for (int i = 0; i < w.size(); i++) {
+            bool isConsistent = true;  
+            for (char c : w[i]) {
+                if (input.find(c) == input.end()) {
+                    isConsistent = false;
+                    break;  
+                }
+            }
+
+            if (isConsistent) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+};
