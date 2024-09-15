@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int findTheLongestSubstring(string s) {
+        vector<int> vowelMaskMap(32, -2);  // Map to store the first occurrence of each mask state
+        vowelMaskMap[0] = -1;  // Initialize the base case with an empty string mask
+        
+        int longestSubstr = 0;  // Variable to track the length of the longest substring
+        int currentMask = 0;    // Current mask to track the parity of vowels
+
+        // Iterate through each character in the string
+        for (int index = 0; index < s.size(); ++index) {
+            char currentChar = s[index];
+
+            // Update the mask based on the current vowel
+            switch (currentChar) {
+                case 'a':
+                    currentMask ^= 1;  // Toggle the bit for 'a'
+                    break;
+                case 'e':
+                    currentMask ^= 2;  // Toggle the bit for 'e'
+                    break;
+                case 'i':
+                    currentMask ^= 4;  // Toggle the bit for 'i'
+                    break;
+                case 'o':
+                    currentMask ^= 8;  // Toggle the bit for 'o'
+                    break;
+                case 'u':
+                    currentMask ^= 16; // Toggle the bit for 'u'
+                    break;
+            }
+
+            // Check if the current mask has been seen before
+            int firstOccurrence = vowelMaskMap[currentMask];
+            if (firstOccurrence == -2) {
+                vowelMaskMap[currentMask] = index;  // Store the first occurrence of this mask
+            } else {
+                longestSubstr = max(longestSubstr, index - firstOccurrence);  // Calculate max length
+            }
+        }
+
+        return longestSubstr;  // Return the length of the longest valid substring
+    }
+};
