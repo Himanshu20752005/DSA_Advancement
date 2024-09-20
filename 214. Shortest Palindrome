@@ -1,0 +1,68 @@
+// MY_SOlution
+// missing the last TEST_CASE
+
+// class Solution {
+// public:
+//     string shortestPalindrome(string s) {
+       
+//         vector<char> output;  
+//         int start = 0;
+//         int end = s.size() - 1;
+    
+//         while (end > 0) {
+//             int i = 0, j = end;
+//             while (i < j && s[i] == s[j]) {
+//                 i++;
+//                 j--;
+//             }
+//             if (i >= j) break;  
+//             end--; 
+//         }
+        
+//         for (int i = s.size() - 1; i > end; i--) {
+//             output.push_back(s[i]);  
+//         }
+        
+//         for (int i = 0; i < s.size(); i++) {
+//             output.push_back(s[i]);
+//         }
+        
+//         string str(output.begin(), output.end());
+        
+//         return str;
+//     }
+// };
+
+
+// leetcode solution
+class Solution {
+public:
+    string shortestPalindrome(string s) {
+        int count = kmp(string(s.rbegin(), s.rend()), s);
+        return string(s.rbegin(), s.rend()).substr(0, s.length() - count) + s;
+    }
+
+private:
+    int kmp(const string &txt, const string &patt) {
+        string newString = patt + '#' + txt;
+        vector<int> pi(newString.length(), 0);
+        int i = 1, k = 0;
+        while (i < newString.length()) {
+            if (newString[i] == newString[k]) {
+                k++;
+                pi[i] = k;
+                i++;
+            } else {
+                if (k > 0) {
+                    k = pi[k - 1];
+                } else {
+                    pi[i] = 0;
+                    i++;
+                }
+            }
+        }
+        return pi.back();
+    }
+};
+
+
