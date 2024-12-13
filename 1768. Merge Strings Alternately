@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string mergeAlternately(string w1, string w2) {
+        string str;
+
+
+        int n1 = w1.length();
+        int n2 = w2.length();
+        int n  = n1 + n2;
+        int i = 0;
+        while( i<n1 || i<n2){
+            
+            if(i<n1) str.push_back(w1[i]);
+            if(i<n2) str.push_back(w2[i]);
+            i++;
+        }
+        return str;
+    }
+};
