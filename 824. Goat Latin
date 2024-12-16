@@ -1,0 +1,58 @@
+class Solution {
+public:
+    string toGoatLatin(string sentence) {
+
+        vector<string>vec;
+        int n=sentence.length();
+        string s;
+
+        for(int i=0;i<n;i++)
+        {
+            if(sentence[i]==' ')
+            {
+                if(!s.empty())
+                { 
+                 vec.push_back(s);
+                 s.clear();
+                }
+            }
+            if(sentence[i]!=' ')
+              s.push_back(sentence[i]);
+        }
+
+        vec.push_back(s);
+        string ans="";
+        for(int i=0;i<vec.size();i++)
+        {
+            if(vec[i][0]=='a'||vec[i][0]=='e'||vec[i][0]=='i'||vec[i][0]=='o'||vec[i][0]=='u'||vec[i][0]=='A'||vec[i][0]=='E'||vec[i][0]=='I'||vec[i][0]=='O'||vec[i][0]=='U')
+               {
+                vec[i].push_back('m');
+                vec[i].push_back('a');
+               }
+            else
+            {
+                char ch=vec[i][0];
+                vec[i].erase(0,1);
+                vec[i].push_back(ch);
+                vec[i].push_back('m');
+                vec[i].push_back('a');
+
+            }
+
+            for(int k=0;k<i+1;k++)
+            {
+                vec[i].push_back('a');
+            }
+
+            ans+=vec[i];
+            ans+=' ';
+          
+
+
+        }
+        ans.pop_back();
+
+        
+        return ans;
+    }
+};v
