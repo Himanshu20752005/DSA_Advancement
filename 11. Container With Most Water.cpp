@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //rewritten
     int maxArea(vector<int>& h) {
         int l = 0;
         int r = h.size() - 1;
