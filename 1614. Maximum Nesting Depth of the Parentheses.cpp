@@ -1,5 +1,6 @@
 class Solution {
 public:
+   //rewritten
     int maxDepth(string s) {
         int count = 0;
         int max = 0;
