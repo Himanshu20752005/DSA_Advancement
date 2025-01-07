@@ -21,7 +21,8 @@ public:
    }
 };
 
-// alternative method 
+// alternative method - TLE error for the last test case
+
 
     //     int sum  = 0 ;
     //     int I , J;
