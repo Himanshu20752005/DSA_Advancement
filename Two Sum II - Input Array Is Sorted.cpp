@@ -20,3 +20,27 @@ public:
     return ans;
    }
 };
+
+// alternative method 
+
+    //     int sum  = 0 ;
+    //     int I , J;
+    //     vector<int> ans;
+    //     for(int i = 0 ;i<num.size() ;i++){
+    //         if(num[i] > target) continue;
+
+    //         for(int j = i+1; j<num.size() ;j++){
+    //             sum = num[i] + num[j];
+
+    //             if(sum == target){
+    //               I = i;
+    //               J=j;
+    //             } 
+    //         }
+    //             if(sum == target) break;
+    //     }
+
+    //     ans.push_back(I+1);
+    //     ans.push_back(J+1);
+          
+    //     return ans;
